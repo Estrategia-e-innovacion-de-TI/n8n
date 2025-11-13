@@ -372,7 +372,7 @@ Inside <body>, you MUST:
 
 ## Prueba de punta a punta
 - Abre el chat del Agente Principal.
-- Escribe: “Investiga el estado actual de ‘RAG con GraphRAG’ aplicado a banca en LatAm; objetivo: proponer piloto; foco: riesgos, costos y proveedores; horizonte: 2024–2025”.
+- Escribe: “Investiga el estado actual y tendencias de ‘Blockchain en banca’ en LatAm; objetivo: proponer piloto; foco: casos de uso, riesgos, costos, regulaciones y proveedores; horizonte: 2024–2025;”.
 - El agente podría hacer 1–2 preguntas de aclaración; luego llamará al Sub-Workflow.
 - Verifica que devuelve resumen ejecutivo, fuentes y `research_url` (abre el PDF).
 
@@ -602,3 +602,14 @@ return $input.all();
 - Tavily: https://tavily.com/ | Docs: https://docs.tavily.com/
 - Google Gemini API: https://ai.google.dev/aistudio | Docs: https://ai.google.dev/gemini-api/docs
 - PDF.co: https://pdf.co/
+
+---
+
+## Retos
+- Implementar interfaz en Telegram: crea el bot con BotFather, conecta un nodo de entrada de Telegram al Agente Principal y responde con el resumen ejecutivo y `research_url`.
+- Persistir historial: guarda briefs, preguntas y respuestas en una base de datos y vincula sesiones (`sessionId`).
+- Base de datos vectorial: crea un índice de documentos con embeddings y habilita búsquedas semánticas desde el agente en esa base (no solo con Tavily).
+- Programar investigación recurrente: ejecuta el sub‑workflow con un disparador de calendario y publica el PDF.
+- Internacionalizar: adapta idioma por usuario y añade detección automática del idioma en el mensaje.
+- Publicar resultados: sube el PDF a un almacenamiento (Drive/Cloud) y comparte enlace corto.
+- Seguridad y gobernanza: registra fuentes, límites de uso y auditoría de búsquedas/llamadas.
