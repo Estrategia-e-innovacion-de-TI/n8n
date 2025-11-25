@@ -1,0 +1,271 @@
+{
+  "name": "MCPs",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "098fb591-624e-41b3-80bc-07d376d0b117",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "b8802cc3-b672-4f5b-9a8d-f08b0d7dab32",
+      "name": "When chat message received",
+      "webhookId": "bc4fc43d-3f00-4074-ac5d-969b0e92dc00"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": ""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "13e91799-cd07-4c6b-91d4-2ba42a8af2cb",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        288,
+        208
+      ],
+      "id": "5326af5c-5a33-4840-ab1c-d5abbd17d386",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "DnecFo3yt3ez1Ha6",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        432,
+        208
+      ],
+      "id": "bc643386-d4b1-4cd2-82db-ba046d4f06a9",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://api.githubcopilot.com/mcp/",
+        "authentication": "bearerAuth",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [
+        800,
+        208
+      ],
+      "id": "df330f2c-0ad1-4057-aed2-30a82ee3a841",
+      "name": "MCP Client",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "mapoF9KFYWlwJYUi",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "bb8TgbNvFmnzHOsW",
+          "mode": "list",
+          "cachedResultName": "MCPs",
+          "cachedResultUrl": "/projects/Bhf0lM04q6UGbIyo/datatables/bb8TgbNvFmnzHOsW"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "autor": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('autor', ``, 'string') }}",
+            "commit": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('commit', ``, 'string') }}",
+            "fecha": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('fecha', ``, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "autor",
+              "displayName": "autor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "commit",
+              "displayName": "commit",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "fecha",
+              "displayName": "fecha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        560,
+        224
+      ],
+      "id": "ea682ee1-02f4-4cfe-86cd-958b68664a92",
+      "name": "Insert row in Data table"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "bb8TgbNvFmnzHOsW",
+          "mode": "list",
+          "cachedResultName": "Taller_MCP",
+          "cachedResultUrl": "/projects/Bhf0lM04q6UGbIyo/datatables/bb8TgbNvFmnzHOsW"
+        },
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.dataTableTool",
+      "typeVersion": 1,
+      "position": [
+        672,
+        224
+      ],
+      "id": "fc9b70bb-ecc1-481c-9066-91208aa5ce60",
+      "name": "Get row(s) in Data table"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert row in Data table": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in Data table": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2dd45e27-f861-43d9-b534-0256303d0647",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4aa26508e876687df2bf256ff71f475360b525f7b3cfce0c0f4672ec51b3592c"
+  },
+  "id": "JCWLt01c8eoogwCZ",
+  "tags": []
+}
