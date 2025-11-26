@@ -11,5 +11,13 @@ Este repositorio reúne talleres prácticos para construir agentes y flujos con 
   - `./talleres/taller_1/Sub-Workflow research.json` (Subworkflow de investigación)
 - Imágenes de apoyo: `./talleres/taller_1/imagenes/`
 
+## Taller 2 — MCPs
+
+## Contenidos
+- Guía detallada del taller: `./talleres/taller 2 (MCPs)/Instructivo.md`
+- Workflows listos para importar:
+  - `./talleres/taller 2 (MCPs)/MCPs.json`
+- Imágenes de apoyo: `./talleres/taller 2 (MCPs)/imagenes`
+
 ## Notas
 - No compartas tus API keys en el repositorio público.
