@@ -16,6 +16,7 @@ Para aprovechar al máximo el tiempo, asegúrate de tener listo:
 - ✅ Cuenta en n8n Cloud (prueba gratuita): https://app.n8n.cloud/register
 - ✅ Cuenta en GitHub + Personal Access Token con todos los permisos: https://github.com/settings/tokens
   - **Importante**: Al crear el token, selecciona todos los scopes (permisos)
+  ✅ Tokens gratuitos e chat gpt al crear la cuenta o 
 - ✅ API Key de Gemini (Google AI Studio / Google Cloud): 
   - [Google Cloud Console](https://console.cloud.google.com/marketplace/product/google/generativelanguage.googleapis.com) Ahi habilitan el uso de gemini
   y aqui: https://console.cloud.google.com/apis/credentials crean el api key.
@@ -115,7 +116,7 @@ Para aprovechar al máximo el tiempo, asegúrate de tener listo:
 
 3. **Eliminar registro de prueba**: Bien, ahora que probamos que funciona, eliminemos ese registro.
 
-4. **Guardar múltiples commits**: Ahora píданle que traiga los últimos 100 commits de ese usuario y que los guarde en la Data Table.
+4. **Guardar múltiples commits**: Ahora pídanle que traiga los últimos 100 commits de ese usuario y que los guarde en la Data Table.
 
    ![DataTable100](./imagenes/DataTable100.png)
 
@@ -126,7 +127,7 @@ Para aprovechar al máximo el tiempo, asegúrate de tener listo:
 
    ![GetRows](./imagenes/GetRows.png)
 
-2. **Subir datos al repositorio**: Le pediremos al agente que tome los datos del Data Table y los suba al repositorio al que hicimos fork como un archivo, creando un commit.
+2. **Subir datos al repositorio**: Le pediremos al agente que tome los datos del Data Table y los suba al repositorio al que hicimos fork como un archivo, creando un commit. Deben pasarle al link de su repositorio, el fork, y recordarle que use el MCP de Github.
 
 ---
 
